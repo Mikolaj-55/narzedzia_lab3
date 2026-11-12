@@ -101,6 +101,34 @@ class Manager:
         self.bills = Bill.from_json_file(self.parameters.bills_json_path)
 
 
+class TenantSettlement:
+    def __init__(self, tenant: Tenant, month:str, year:str, apartment:str, bills:list[Bill], transfers:list[Transfer]):
+        self.tenant = tenant   
+        self.apartment = apartment
+        self.bills = bills
+        self.transfers = transfers
+        self.month = month
+        self.year = year
+        self.rent = 0
+        self.costs = 0
+        self.total_amount = 0
+        self.payed = 0
+        self.saldo = 0
+        
+        self.count_saldo()
+
+    def count_saldo(self):
+        self.rent = self.tenant.rent_pln
+        for bill in self.bills:
+            if bill.settlement_month == self.month and bill.settlement_year == self.year and bill.apartment == apartment:
+                self.costs += bill.amount_pln
+        self.total_cost = self.rent + self.costs
+        for transfer in self.transfers:
+            if transfer.settlement_year == self.year and transfer.settlement_month == self.month and transfer.tenant == tenant.name:
+                self.payed += transfer.amount_pln
+        self.saldo = self.total_cost - self.payed
+        return self.saldo    
+
 if __name__ == '__main__':
     parameters = Parameters()
     manager = Manager(parameters)
