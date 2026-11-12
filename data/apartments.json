@@ -12,6 +12,10 @@
             "room-smaller": {
                 "name": "Smaller Room",
                 "area_m2": 15
+            },
+            "room-bigger2": {
+                "name": "Bigger Room",
+                "area_m2": 19
             }
         }
     } 
