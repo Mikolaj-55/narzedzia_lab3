@@ -111,7 +111,7 @@ class TenantSettlement:
         self.year = year
         self.rent = 0
         self.costs = 0
-        self.total_cost = 0
+        self.total_amount = 0
         self.payed = 0
         self.saldo = 0
         
